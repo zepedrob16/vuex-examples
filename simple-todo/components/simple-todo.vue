@@ -36,7 +36,6 @@
 			/>
 			<button> Add Todo </button>
 		</form>
-
 	</div>
 </template>
 
@@ -46,7 +45,8 @@ import store from '../store';
 export default {
 	data() {
 		return {
-			text: ''
+			text: '',
+			number: 0
 		}
 	},
 
@@ -67,8 +67,8 @@ export default {
 			store.commit('removefavorite', id)
 		},
 		fetchCat() {
-			store.commit('fetchCat', this.text)
-			this.text = ''
+			console.log(this)
+			store.commit('fetchCat', this.number)
 		}
 	}
 }

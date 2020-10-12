@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import axios from 'axios'
 
 Vue.use(Vuex)
+const URL = 'https://cat-fact.herokuapp.com'
 
 export default new Vuex.Store({
 	state: {
@@ -27,7 +29,15 @@ export default new Vuex.Store({
 			state.favorites.splice(state.favorites.indexOf(todo), 1)
 		},
 		fetchCat(state, number) {
-			//TODO
+			console.log(number)
+			axios.get(`${URL}/facts/random?animal_type=cat&amount=${number}`).then(res =>{
+				res.data.forEach(fact => {
+					var text = fact.text
+					state.todos.push({ text })
+				});
+				//var text = res.data.text
+				//state.todos.push({ text })
+			})
 		}
 	}
 })
