@@ -21,7 +21,7 @@ export default new Vuex.Store({
 
 			state.todos.splice(state.todos.indexOf(todo), 1)
 		},
-		addTofavorites(state, todo) {
+		addToFavorites(state, todo) {
 
 			for (let index = 0; index < state.favorites.length; index++)
 				if (state.favorites[index] == todo)
@@ -29,11 +29,10 @@ export default new Vuex.Store({
 
 			state.favorites.push(todo)
 		},
-		removefavorite(state, todo) {
+		removeFavorite(state, todo) {
 			state.favorites.splice(state.favorites.indexOf(todo), 1)
 		},
 		fetchCat(state, number) {
-			console.log(number)
 			axios.get(`${URL}/facts/random?animal_type=cat&amount=${number}`).then(res =>{
 				res.data.forEach(fact => {
 					var text = fact.text

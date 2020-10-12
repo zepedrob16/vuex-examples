@@ -14,7 +14,7 @@
 			  :key="index"
 			>{{ todo.text }}
 				<button @click="removeTodo(todo)">x</button>
-				<button @click="addTofavorites(todo)">Add to favorites</button>
+				<button @click="addToFavorites(todo)">Add to favorites</button>
 				</li>
 		</ul>
 		<h1 class = "favorites header"> Favorites </h1>
@@ -24,7 +24,7 @@
 				:key="index"
 			>
 				{{favorite.text}}
-				<button @click="removefavorite(favorite)">Remove favorite</button>
+				<button @click="removeFavorite(favorite)">Remove favorite</button>
 			</li>
 		</ul>
 		<h1 class = "cat facts"> Cat Facts </h1>
@@ -61,14 +61,13 @@ export default {
 		removeTodo(id) {
 			store.commit('removeTodo', id)
 		},
-		addTofavorites(id) {
-			store.commit('addTofavorites', id)
+		addToFavorites(id) {
+			store.commit('addToFavorites', id)
 		},
-		removefavorite(id) {
-			store.commit('removefavorite', id)
+		removeFavorite(id) {
+			store.commit('removeFavorite', id)
 		},
 		fetchCat() {
-			console.log(this)
 			store.commit('fetchCat', this.number)
 		}
 	}
