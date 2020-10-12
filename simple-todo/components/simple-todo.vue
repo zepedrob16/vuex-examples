@@ -24,9 +24,19 @@
 				:key="index"
 			>
 				{{favorite.text}}
-				<button @click="removefavorite(todo)">Remove favorite</button>
+				<button @click="removefavorite(favorite)">Remove favorite</button>
 			</li>
 		</ul>
+		<h1 class = "cat facts"> Cat Facts </h1>
+		<form @submit.prevent="fetchCat">
+			<input
+			  type="number"
+			  placeholder="How many cat facts?"
+			  v-model="number"
+			/>
+			<button> Add Todo </button>
+		</form>
+
 	</div>
 </template>
 
@@ -55,6 +65,10 @@ export default {
 		},
 		removefavorite(id) {
 			store.commit('removefavorite', id)
+		},
+		fetchCat() {
+			store.commit('fetchCat', this.text)
+			this.text = ''
 		}
 	}
 }

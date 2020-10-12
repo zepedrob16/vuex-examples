@@ -25,6 +25,9 @@ export default new Vuex.Store({
 		},
 		removefavorite(state, todo) {
 			state.favorites.splice(state.favorites.indexOf(todo), 1)
+		},
+		fetchCat(state, number) {
+			//TODO
 		}
 	}
 })
