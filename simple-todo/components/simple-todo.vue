@@ -17,7 +17,7 @@
 				<button @click="addTofavorites(todo)">Add to favorites</button>
 				</li>
 		</ul>
-		<h1 class = "favorites header"> favorites </h1>
+		<h1 class = "favorites header"> Favorites </h1>
 		<ul>
 			<li
 				v-for="(favorite, index) in favorites"
@@ -28,6 +28,7 @@
 			</li>
 		</ul>
 		<h1 class = "cat facts"> Cat Facts </h1>
+		<p>How many cat facts?</p>
 		<form @submit.prevent="fetchCat">
 			<input
 			  type="number"

@@ -15,6 +15,10 @@ export default new Vuex.Store({
 			state.todos.push({ text })
 		},
 		removeTodo(state, todo) {
+			for (let index = 0; index < state.favorites.length; index++)
+				if (state.favorites[index] == todo)
+					state.favorites.splice(index, 1)
+
 			state.todos.splice(state.todos.indexOf(todo), 1)
 		},
 		addTofavorites(state, todo) {
